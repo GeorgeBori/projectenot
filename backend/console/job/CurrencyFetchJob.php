@@ -29,10 +29,11 @@ class CurrencyFetchJob
         $rates = $this->currencyService->fetchRates();
 
         foreach ($rates as $code => $data) {
-            $currency = Currency::updateOrCreate(['code' => $code]);
-            $currency->rate = $data['rate'];
-            $currency->nominal = $data['nominal'];
-            $currency->save();
+            Currency::updateOrCreate([
+                'code' => $code,
+                'rate' => $data['rate'],
+                'nominal' => $data['nominal']
+            ]);
         }
     }
 }
