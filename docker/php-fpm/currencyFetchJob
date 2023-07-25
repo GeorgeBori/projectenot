@@ -1,1 +1,1 @@
-* * * * * root php /var/www/html/app currency-fetch > /var/log/cron.log
+*/30 * * * * root php /var/www/html/app currency-fetch > /var/log/cron.log
